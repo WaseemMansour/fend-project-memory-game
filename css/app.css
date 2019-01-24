@@ -225,6 +225,10 @@ h1 {
     .deck .card {
         width: 48%;
     }
+
+    .modal-window > div {
+        width: 95%;
+    }
 }
 
 @media (max-width: 320px ) {

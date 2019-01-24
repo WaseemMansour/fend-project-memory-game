@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', timer.start());
 document.addEventListener('click', function(e) {
 
     let target = e.target;
-    if ( openedCards.length < 2 && target.matches('.card') ) {
+    if ( openedCards.length < 2 && target.matches('.card') && !target.classList.contains('match') ) {
         openCard(target);
         count();
         ratePlayer(counter);
