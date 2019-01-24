@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-* [How the Game Works](#How%20the%20Game%20Works)
-* [Game Functionality](#Game%20Functionality)
+* [How the Game Works](#How-the-Game-Works)
+* [Game Functionality](#Game-Functionality)
 * [Credits](#Credits)
 
 ## How the Game Works
