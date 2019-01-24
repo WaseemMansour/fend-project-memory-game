@@ -91,11 +91,15 @@ h1 {
     margin-bottom: 10px;
 }
 
-.score-panel .stars {
-    margin: 0;
+.stars {
+    list-style: none;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+}
+
+.stars li {
+    display: inline-block;
 }
 
 .score-panel .stars li {
@@ -106,4 +110,94 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+    margin-right: 20px;
+}
+
+.score-panel .timer {
+    float: right;
+    min-width: 50px;
+}
+
+.timer:after {
+    content: 's';
+}
+
+.score-panel .timer span {
+    display: inline-block;
+}
+
+/*
+/* Modal - https://codepen.io/timothylong/pen/HhAer/
+ **/
+
+.modal-window {
+    text-align: center;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.25);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+.modal-window.show-modal {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-window > div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: #ffffff;
+    color: #333333;
+}
+.modal-window header {
+    font-weight: bold;
+}
+.modal-window h1 {
+    font-size: 150%;
+    font-weight: bold;
+    margin: 0 0 15px;
+    color: #333333;
+}
+
+.modal-close {
+    color: #aaa;
+    line-height: 50px;
+    font-size: 80%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+}
+
+.modal-close:hover {
+    color: #000;
+}
+
+/* customization */
+.question {
+    margin-bottom: 0;
+}
+
+.btn {
+    border: none;
+    padding: 10px 25px;
+    margin: 20px 10px 0;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #02ccba;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    color: #fff;
 }
