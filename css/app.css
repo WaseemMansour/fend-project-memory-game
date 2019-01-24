@@ -75,6 +75,10 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.orange-bg {
+    background: #ff4f22;
+}
+
 .deck .card.match {
     cursor: default;
     background: #02ccba;

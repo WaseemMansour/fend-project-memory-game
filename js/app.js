@@ -98,12 +98,19 @@ document.addEventListener('click', function(e) {
                 matchFound(openedCards);
                 openedCards.length = 0;
             } else {
+                setTimeout(function(){
+                    for (card of openedCards ) {
+                        card.classList.remove('animated', 'flipInY');
+                        card.classList.add('animated', 'shake', 'orange-bg');
+                    }
+                }, 500);
                 setTimeout(function () {
                     for (card of openedCards ) {
+                        card.classList.remove('orange-bg');
                         toggleCardIcon(card);
                     }
                     openedCards.length = 0;
-                }, 1000);
+                }, 1500);
             }
         }
     }
@@ -128,7 +135,7 @@ function toggleCardIcon(i) {
 // Lock cards matched in open position
 function matchFound(cardsOpened) {
     for (card of cardsOpened) {
-        card.className = 'card match';
+        card.className = 'card match animated jello';
     }
 
     matched = matched + 2;
@@ -147,6 +154,8 @@ function openCard(target){
     if(openedCards.length < 2) {
         openedCards.push(target);
         toggleCardIcon(target);
+        target.classList.toggle('animated');
+        target.classList.toggle('flipInY');
     } else {
         openedCards.length = 0;
     }
