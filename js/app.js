@@ -28,8 +28,6 @@ function shuffle(array) {
 }
 
 // Build Game's Cards
-const randomCards = shuffle(iconsArr);
-const fragment = document.createDocumentFragment();
 const deck = document.querySelector('.deck');
 const ratingStars = document.querySelector('.stars');
 const timeClock = document.querySelector('.timer span');
@@ -37,14 +35,21 @@ const modal = document.querySelector('.modal-window');
 const totalTime = document.querySelector('.game-time');
 const rating = document.querySelector('.rating-score');
 
-for (card of randomCards) {
-    const element = document.createElement('li');
-    element.className = 'card';
-    element.innerHTML = '<i class="fa '+card+'"></i>';
-    fragment.appendChild(element);
-}
-deck.appendChild(fragment);
+function initGame() {
+    deck.innerHTML = '';
+    const randomCards = shuffle(iconsArr);
+    const fragment = document.createDocumentFragment();
 
+    for (card of randomCards) {
+        const element = document.createElement('li');
+        element.className = 'card';
+        element.innerHTML = '<i class="fa '+card+'"></i>';
+        fragment.appendChild(element);
+    }
+    deck.appendChild(fragment);
+}
+
+initGame();
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -89,7 +94,7 @@ document.addEventListener('DOMContentLoaded', timer.start());
 document.addEventListener('click', function(e) {
 
     let target = e.target;
-    if ( openedCards.length < 2 && target.matches('.card') && !target.classList.contains('match') ) {
+    if ( openedCards.length < 2 && target.matches('.card') && !target.classList.contains('match') && !target.classList.contains('open') ) {
         openCard(target);
         count();
         ratePlayer(counter);
@@ -173,7 +178,7 @@ function resetGame(cards) {
     gameCounter.innerHTML = counter;
     openedCards.length = 0;
     matchedCards.length = 0;
-
+    initGame();
     for (card of cards) {
         card.className = 'card';
     }
